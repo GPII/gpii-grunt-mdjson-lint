@@ -1,0 +1,47 @@
+{
+  "name": "gpii-grunt-mdjson-lint",
+  "description": "A plugin to lint JSON and JSON5 blocks within markdown documents.",
+  "version": "1.0.0",
+  "homepage": "",
+  "author": "Tony Atkins <tony@raisingthefloor.org>",
+  "repository": {
+    "type": "git",
+    "url": "git://gihub.com/the-t-in-rtf/grunt-mdjson-linter.git"
+  },
+  "licenses": [
+    {
+      "type": "BSD-3-Clause",
+      "url": "/blob/master/LICENSE-BSD-3-Clause"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "node node_modules/istanbul/lib/cli.js cover tests/all-tests.js"
+  },
+  "dependencies": {
+    "infusion": "3.0.0-dev.20171006T195039Z.a128358",
+    "json5": "0.5.1",
+    "markdown-to-ast": "4.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~1.0.1",
+    "eslint": "4.8.0",
+    "eslint-config-fluid": "1.1.0",
+    "fluid-grunt-eslint": "18.1.2",
+    "fluid-grunt-json5lint": "1.0.0",
+    "grunt-jsonlint": "1.1.0",
+    "istanbul": "0.4.5",
+    "node-jqunit": "1.1.7",
+    "rimraf": "2.6.2"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "license": "BSD-3-Clause"
+}
