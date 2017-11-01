@@ -9,7 +9,7 @@
         "url": "git://github.com/GPII/grunt-mdjson-lint.git"
     },
     "engines": {
-        "node": ">= 0.8.0 < 6"
+        "node": ">= 6.0.0"
     },
     "scripts": {
         "test": "node node_modules/istanbul/lib/cli.js cover tests/all-tests.js"
