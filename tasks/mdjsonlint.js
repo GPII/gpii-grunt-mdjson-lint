@@ -51,11 +51,11 @@ module.exports = function (grunt) {
             });
 
             if (errorCount) {
-                grunt.log.error("Found " + errorCount + " errors in " + validPaths.length + " files...");
+                grunt.log.error("Found " + errorCount + " errors in " + validPaths.length + " files.");
                 return false;
             }
             else {
-                grunt.log.ok("Scanned " + validPaths.length + " files, there were no JSON(5) errors found...");
+                grunt.log.ok(validPaths.length + " " + errorCount > 1 ? "files" : "file" + " lint free.");
             }
         });
     });
