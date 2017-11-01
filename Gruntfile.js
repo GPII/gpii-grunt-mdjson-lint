@@ -1,5 +1,5 @@
 /*
- * gpii-grunt-mdjson-linter
+ * gpii-grunt-mdjson-lint
  *
  * Copyright (c) 2017 Raising the Floor Internationals
  *
