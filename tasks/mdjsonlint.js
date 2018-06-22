@@ -23,6 +23,8 @@ module.exports = function (grunt) {
         //     separator: ', '
         // });
 
+        var errorCount = 0;
+        var fileCount  = 0;
         // Iterate over all specified file groups.
         this.files.forEach(function (f) {
             var validPaths = f.src.filter(function (filepath) {
@@ -35,7 +37,8 @@ module.exports = function (grunt) {
                 }
             });
 
-            var errorCount       = 0;
+
+            fileCount += validPaths.length;
 
             fluid.each(validPaths, function (filepath) {
                 var mdContent = grunt.file.read(filepath);
@@ -50,14 +53,15 @@ module.exports = function (grunt) {
                 }
             });
 
-            if (errorCount) {
-                grunt.log.error("Found " + errorCount + " errors in " + validPaths.length + " files.");
-                return false;
-            }
-            else {
-                grunt.log.ok(validPaths.length + " " + errorCount > 1 ? "files" : "file" + " lint free.");
-            }
         });
+
+        if (errorCount) {
+            grunt.log.error("Found " + errorCount + " errors in " + fileCount + " " + fileCount === 1 ? "file" : "files" + ".");
+            return false;
+        }
+        else {
+            grunt.log.ok(fileCount + " " + fileCount === 1 ? "file" : "files" + " lint free.");
+        }
     });
 
 };
