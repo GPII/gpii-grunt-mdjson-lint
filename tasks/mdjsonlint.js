@@ -52,7 +52,6 @@ module.exports = function (grunt) {
                     });
                 }
             });
-
         });
 
         if (errorCount) {
@@ -60,7 +59,7 @@ module.exports = function (grunt) {
             return false;
         }
         else {
-            grunt.log.ok(fileCount + " " + fileCount === 1 ? "file" : "files" + " lint free.");
+            grunt.log.ok(fileCount + " " + (fileCount === 1 ? "file" : "files") + " lint free.");
         }
     });
 
