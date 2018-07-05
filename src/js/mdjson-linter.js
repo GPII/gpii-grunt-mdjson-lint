@@ -18,7 +18,7 @@ fluid.registerNamespace("gpii.mdjsonLinter");
 
 /**
  *
- * @param markdownString {String} - The markdown content to be parsed.
+ * @param {String} markdownString - The markdown content to be parsed.
  * @return {Array} An array containing any errors detected.
  */
 gpii.mdjsonLinter = function (markdownString) {

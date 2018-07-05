@@ -34,7 +34,7 @@ the information needed to identify which file, line number and column number are
 the first failure in a single fenced code block may prevent you from seeing subsequent errors in the same fenced code
 block.
 
-# Using this Package
+## Using this Package
 
 Install this package in your project using `npm install gpii-grunt-mdjson-lint`.
 
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
             src: ["./docs/*.md"]
         }
     });
-    
+
     grunt.loadNpmTasks("gpii-grunt-mdjson-lint");
 };
 ```

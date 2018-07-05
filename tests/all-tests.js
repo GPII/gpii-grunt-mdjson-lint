@@ -3,3 +3,4 @@
 
 require("./js/tests-extractPosition");
 require("./js/tests-mdjson-linter");
+require("./js/tests-grunt-integration");

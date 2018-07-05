@@ -9,34 +9,27 @@
 "use strict";
 
 module.exports = function (grunt) {
-    // Project configuration.
     grunt.initConfig({
-        eslint: {
-            src: [ "./tasks/**/*.js", "./src/**/*.js", "./tests/**/*.js","./*.js" ]
-        },
-        jsonlint: {
-            src: ["./src/**/*.json", "tests/**/*.json", "./*.json", "!./tests/markdown/bad*"]
-        },
-        json5lint: {
-            src: ["./src/**/*.json5", "tests/**/*.json5", "./*.json5", "!./tests/markdown/bad*"]
-        },
-        "mdjsonlint": {
-            default_options: {
-                src: ["./*.md", "./**/*.md", "!./node_modules/**"]
-            },
-            // We have intentionally broken material in our tests that must be excluded.
-            selflint: {
-                src: ["./*.md", "./**/*.md", "!./node_modules/**", "!./tests/markdown/bad*"]
+        lintAll: {
+            sources: {
+                md: ["./*.md", "./**/*.md", "!./node_modules/**", "!./tests/markdown/bad*"],
+                js: [ "./tasks/**/*.js", "./src/**/*.js", "./tests/**/*.js","./*.js" ],
+                json: ["./src/**/*.json", "tests/**/*.json", "./*.json", "!./tests/markdown/bad*"],
+                json5: ["./src/**/*.json5", "tests/**/*.json5", "./*.json5", "!./tests/markdown/bad*"],
+                other: ["./.*"]
             }
         }
     });
 
-    // Actually load this plugin's task(s).
+    grunt.loadNpmTasks("gpii-grunt-lint-all");
+
+    // WARNING:
+    //
+    //   This is what we have to do in this specific package to use the most current task code instead of what
+    //   we inherit from the gpii-grunt-lint-all plugin.  Under no circumstances should you reuse the next two lines in
+    //   your own work.
+    grunt.renameTask("mdjsonlint", "lint-all-mdjsonlint");
     grunt.loadTasks("tasks");
 
-    grunt.loadNpmTasks("grunt-jsonlint");
-    grunt.loadNpmTasks("fluid-grunt-json5lint");
-    grunt.loadNpmTasks("fluid-grunt-eslint");
-
-    grunt.registerTask("lint", "Javascript and JSON validation...", ["eslint", "jsonlint", "json5lint", "mdjsonlint:selflint"]);
+    grunt.registerTask("lint", "Perform all standard lint checks.", ["lint-all"]);
 };

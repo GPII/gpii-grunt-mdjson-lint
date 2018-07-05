@@ -8,5 +8,4 @@ This is leading content.
 }
 ```
 
-
 This is trailing content.
