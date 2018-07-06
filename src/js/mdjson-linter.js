@@ -11,7 +11,7 @@
 var fluid = require("infusion");
 var gpii  = fluid.registerNamespace("gpii");
 
-var mdParser = require("markdown-to-ast");
+var mdParser = require("@textlint/markdown-to-ast");
 var JSON5    = require("json5");
 
 fluid.registerNamespace("gpii.mdjsonLinter");

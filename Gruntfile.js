@@ -7,8 +7,13 @@
  */
 /* eslint-env node */
 "use strict";
-
+var fluid = require("infusion");
+var gpii  = fluid.registerNamespace("gpii");
+fluid.require("%gpii-grunt-lint-all/src/load-npm-tasks-properly.js");
 module.exports = function (grunt) {
+    // This is required because of the inherent circularity of this setup.
+    gpii.grunt.lintAll.fixGruntTaskLoading(grunt);
+
     grunt.initConfig({
         lintAll: {
             sources: {
@@ -21,7 +26,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks("gpii-grunt-lint-all");
+    grunt.loadNpmTasksProperly("gpii-grunt-lint-all");
 
     // WARNING:
     //
