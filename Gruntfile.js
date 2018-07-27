@@ -11,7 +11,17 @@ var fluid = require("infusion");
 var gpii  = fluid.registerNamespace("gpii");
 fluid.require("%gpii-grunt-lint-all/src/load-npm-tasks-properly.js");
 module.exports = function (grunt) {
-    // This is required because of the inherent circularity of this setup.
+    /*
+
+        This package makes use of the gpii-grunt-lint-all plugin to lint check its source.  That package depends on its
+        own version of this package.  This next line adds the loadNpmTasksProperly command so that we can load
+        gpii-grunt-lint-all without our dependencies conflicting with those inherited from its copy of this package.
+
+        We also renamed the tasks pulled in with the gpii-grunt-lint-all plugin so that our own lint checks use our code
+        for the mdjson lint checks.  End users should use the gpii-grunt-lint-all plugin directly and use the
+        configuration syntax outlined in that package's documentation.
+
+     */
     gpii.grunt.lintAll.fixGruntTaskLoading(grunt);
 
     grunt.initConfig({
