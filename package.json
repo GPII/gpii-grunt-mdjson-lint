@@ -1,7 +1,7 @@
 {
     "name": "gpii-grunt-mdjson-lint",
     "description": "A plugin to lint JSON and JSON5 blocks within markdown documents.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homepage": "http://github.com/GPII/grunt-mdjson-lint",
     "author": "Tony Atkins <tony@raisingthefloor.org>",
     "repository": {
