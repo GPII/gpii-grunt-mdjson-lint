@@ -27,10 +27,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         lintAll: {
             sources: {
-                md: ["./*.md", "./**/*.md", "!./node_modules/**", "!./tests/markdown/bad*"],
-                js: [ "./tasks/**/*.js", "./src/**/*.js", "./tests/**/*.js","./*.js" ],
-                json: ["./src/**/*.json", "tests/**/*.json", "./*.json", "!./tests/markdown/bad*"],
-                json5: ["./src/**/*.json5", "tests/**/*.json5", "./*.json5", "!./tests/markdown/bad*"],
+                md:    ["*.md", "!./node_modules/**", "!./tests/markdown/bad*"],
+                js:    ["*.js"],
+                json:  ["*.json", "!./tests/markdown/bad*"],
+                json5: ["*.json5", "!./tests/markdown/bad*"],
                 other: ["./.*"]
             }
         }
